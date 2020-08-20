@@ -1,0 +1,25 @@
+#       Configuration file for the Sod Problem
+
+REQUIRES Driver
+REQUIRES physics/Eos/EosMain/Gamma
+REQUIRES physics/Hydro
+
+#INITIAL CONDITIONS
+## Density to the left of the discontinuity
+PARAMETER sim_rhoLeft	REAL	1.	[0 to ]
+## Density to the right of the discontinuity
+PARAMETER sim_rhoRight	REAL	0.125	[0 to ]
+## Pressure to the left...
+PARAMETER sim_pLeft	REAL	1.	[0 to ]
+## Pressure to the right...
+PARAMETER sim_pRight	REAL	0.1	[0 to ]
+## Velocity to the left...
+PARAMETER sim_uLeft	REAL	0.
+## Velocity to the right...
+PARAMETER sim_uRight	REAL	0.
+## Angle with respect to the x axis of the discontinuity
+PARAMETER sim_xangle	REAL	0.	[0 to 360]
+## Angle with respect to the y axis of the discontinuity
+PARAMETER sim_yangle	REAL	90.	[0 to 360]
+## Intersection between the shock plane and the x axis
+PARAMETER sim_posn	REAL	0.5

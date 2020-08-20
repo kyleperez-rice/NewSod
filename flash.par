@@ -1,0 +1,91 @@
+#	Runtime parameters for the Sod problem.
+
+#	Parameters for initial model
+
+#		Ambient pressure and density, explosion energy, initial
+#		radius of perturbation, and location of explosion center
+
+# Density, pressure, and velocity on either side of the interface
+sim_rhoLeft = 1.
+sim_rhoRight = 0.125
+
+sim_pLeft = 1.
+sim_pRight = 0.1
+sim_uLeft = 0.
+sim_uRight = 0.
+
+# Angle and position of the interface relative to the x and y axes
+sim_xangle = 0
+sim_yangle = 90.
+sim_posn = 0.5
+
+# Ratio of specific heats
+gamma = 1.4
+
+geometry = cartesian
+
+# Size of computational volume
+xmin = 0.
+xmax = 1.
+ymin = 0.
+ymax = 1.
+
+# Boundary conditions
+
+xl_boundary_type = "outflow"
+xr_boundary_type = "outflow"
+
+yl_boundary_type = "outflow"
+yr_boundary_type = "outflow"
+
+# Simulation (grid,time, I/O) parameters
+cfl = 0.8
+basenm = "newsod_"
+restart = .false
+
+# Checkpoint file output parameters
+checkpointFileIntervalTime = 0.2
+checkpointFileIntervalStep = 0
+checkpointFileNumber = 0
+
+# plotfile output parameters
+plotfileIntervalTime = 0.
+plotfileIntervalStep = 0
+plotfileNumber = 0
+
+nend = 1000
+tmax = .2
+
+run_comment = "Sod problem, barallel to x-axis"
+log_file = "newsod.log"
+eint_switch = 1.e-4
+
+plot_var_1 = "dens"
+plot_var_2 = "pres"
+Plot_var_3 = "temp"
+
+# AMR refinement parameters
+lrefine_max = 6
+refine_var_1 = "dens"
+
+# These parameters are used only for the uniform grid
+#iGridSize = 8	#defines as nxb*iprocs
+#jGridSize = 8
+#kGridSize = 1
+iProcs = 1	# Number of procs in the i direction
+jProcs = 1
+kProcs = 1
+
+# When using uniform grid; iProcs, jProcs, and kProcs must be specified.
+# These are the processors along each of the dimensions
+#FIXEDBLOCKSIZE mode ::
+# When using fixed blocksize, iGridSize etc are reduntant in runtume parameters
+# These quantities are calculated as
+# iGridSize = NXB*iprocs
+# jGridSize = NYB*jprocs
+# kGridSize = NZB*kprocs
+#NONFIXEDBLOCKSIZE mode ::
+# iGridSize etc must be specified.
+# They constitute the global number of grid points in the physical domain
+# without taking the guard cell into account
+# The local blocksize is calculated as iGridSize/iprocs etc.
